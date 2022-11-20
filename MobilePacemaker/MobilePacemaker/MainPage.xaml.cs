@@ -44,6 +44,8 @@ namespace MobilePacemaker
         const double SPEEDTODISTANCE = 0.000027777;
         int licznik = 0;
 
+        int rowsAdded;
+
 
         public MainPage()
         {
@@ -665,7 +667,7 @@ namespace MobilePacemaker
                 using (SQLiteConnection conn = new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyStore.db3")))
                 {
                     conn.CreateTable<History>();
-                    int rowsAdded = conn.Insert(runsHistory);
+                    rowsAdded = conn.Insert(runsHistory);
                 }
 
                 listViewHistory.ItemsSource = await App.MyDatabase.ReadHistory();
@@ -796,7 +798,11 @@ namespace MobilePacemaker
             bool result = await DisplayAlert("Usuń", $"Czy chcesz usunąć bieg, który odbył się w {emp.Date}?", "tak", "nie");
             if (result)
             {
-                await App.MyDatabase.DeleteHistory(emp);
+                using (SQLiteConnection conn = new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyStore.db3")))
+                {
+                    conn.Delete(emp);
+                }
+                
                 listViewHistory.ItemsSource = await App.MyDatabase.ReadHistory();
             }
         }

@@ -7,7 +7,7 @@ namespace MobilePacemaker
 {
     public class History
     {
-        
+        [PrimaryKey]
         public string Date { get; set; }
 
         public string AvgSpeed { get; set; }
