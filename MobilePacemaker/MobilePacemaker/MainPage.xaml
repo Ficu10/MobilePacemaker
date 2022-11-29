@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage NavigationPage.HasNavigationBar="false"
+             NavigationPage.HasBackButton="false"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobilePacemaker.MainPage"
              BackgroundColor="Black">
 
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -18,104 +19,21 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+    
 
-
-        <StackLayout Grid.Row = "1" Grid.Column = "0" >
-            <Label TextColor="AntiqueWhite" x:Name="avargeSpeed" FontSize="20" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "0" Text="Śr.Prędkość" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"  ></Label>
-            <Label TextColor="AntiqueWhite" x:Name="avargeSpeedValue" FontSize="30" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"  ></Label>
-        </StackLayout>
-        <StackLayout Grid.Row = "1" Grid.Column = "1">
-            <Label TextColor="AntiqueWhite" x:Name="distance" FontSize="20" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "1" Text="Dystans" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"></Label>
-            <Label TextColor="AntiqueWhite" x:Name="distanceValue" FontSize="30" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "1"  VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"></Label>
-        </StackLayout>
-        <StackLayout Grid.Row = "2" Grid.Column = "0">
-            <Label TextColor="AntiqueWhite" x:Name="time" FontSize="20" FontAttributes="Bold" Grid.Row = "2" Grid.Column = "0" Text="Czas" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"  ></Label>
-            <Label TextColor="AntiqueWhite" x:Name="timeValue" FontSize="30" FontAttributes="Bold" Grid.Row = "2" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"  ></Label>
-        </StackLayout>
-        <StackLayout Grid.Row = "2" Grid.Column = "1">
-            <Label TextColor="AntiqueWhite" x:Name="speed" FontSize="20" FontAttributes="Bold" Grid.Row = "3" Grid.Column = "0" Text="Prędkość" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"      ></Label>
-            <Label TextColor="AntiqueWhite" x:Name="speedValue" FontSize="30" FontAttributes="Bold" Grid.Row = "3" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"      ></Label>
-        </StackLayout>
-        <Label TextColor="AntiqueWhite" x:Name="question" Text="Czy chcesz zakończyć trening?" FontSize="Medium" FontAttributes="Bold" Grid.Row = "1" Grid.ColumnSpan="2"   VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"      ></Label>
-        <Label TextColor="AntiqueWhite" x:Name="history" Text="" FontSize="Small" FontAttributes="Bold" Grid.Row = "1"    VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"      ></Label>
-        <Label TextColor="AntiqueWhite" x:Name="question2" Text="Czy na pewno chcesz usunąć?" FontSize="Medium" FontAttributes="Bold" Grid.Row = "1" Grid.ColumnSpan="2"   VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False"      ></Label>
-
-        <CollectionView x:Name="listViewHistory" BackgroundColor="Black " IsEnabled="False" IsVisible="False"  Grid.Row="1"  Grid.ColumnSpan="2" Grid.RowSpan ="3" HeightRequest="300" SelectionMode="Single" SelectionChanged="ListViewHistory_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate >
-                    <SwipeView BackgroundColor="Black ">
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Usuń"
-                                           BackgroundColor="Red"
-                                           CommandParameter="{Binding .}"
-                                           Invoked="SwipeItem_Invoked"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <StackLayout Orientation="Horizontal">
-                            <Image
-                       Source="{Binding ImageUrl}"
-                       Aspect="AspectFit"
-                       HeightRequest="60"
-                       WidthRequest="60"
-                                />
-                            <StackLayout HorizontalOptions="StartAndExpand"
-                                         Spacing="0">
-                                <Label
-                                    Text="{Binding Date}"
-                                    TextColor="White"/>
-
-
-                            </StackLayout>
-                        </StackLayout>
-                    </SwipeView>
-
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+       
 
         <Label x:Name="Mobile" Text="Mobile" TextColor="White" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="60" Grid.Row="0" Grid.ColumnSpan="2"/>
         <Label x:Name="Pacemaker" Text="Pacemaker" TextColor="White" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="End" FontSize="60" Grid.Row="0" Grid.ColumnSpan="2"/>
 
 
 
-
-
-
-
-
-
-
-
-
         <ImageButton BorderColor="White" BorderWidth="4" Padding="35" CornerRadius="40"  BackgroundColor ="Black" Source = "newRun.jpg" x:Name = "NewRunButton" Clicked="NewRunButton_Clicked"  Grid.Row = "1" Grid.Column = "0"  />
         <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "settings.png" x:Name = "SettingsButton" Clicked="SettingsButton_Clicked" Grid.Row = "2" Grid.Column = "0"/>
-        <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "lang.png" x:Name = "LanguageButton" Clicked="LanguageButton_Clicked" Grid.Row = "2" Grid.Column = "0" IsVisible="False"/>
-        <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "freq.png" x:Name = "SignalsFrequencyButton" Clicked="SignalsFrequencyButton_Clicked" Grid.Row = "2" Grid.Column = "1" IsVisible="False"/>
         <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "hist.png" x:Name = "HistoryButton"  Clicked="HistoryButton_Clicked"  Grid.Row = "1" Grid.Column = "1"/>
-        <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "tempo.png" x:Name = "ExitButton" Clicked="ExitButton_Clicked"  Grid.Row = "2" Grid.Column = "1"/>
-        <ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackButton" Clicked="BackButton_Clicked"   Grid.Row = "0" Grid.Column = "1" IsVisible="False" Margin="100,0,0,100" />
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Green" x:Name = "OneHundredMButton" Clicked="OneHundredMButton_Clicked"  FontSize="15" Text="100m"  Grid.Row = "1" Grid.Column = "0" IsVisible="False"/>
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "TwoHundredMButton" Clicked="TwoHundredMButton_Clicked"  FontSize="15" Text="200m" Grid.Row = "1" Grid.Column = "1" IsVisible="False"/>
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "FiveHundredMButton" Clicked="FiveHundredMButton_Clicked"  FontSize="15" Text="500m" Grid.Row = "2" Grid.Column = "0" IsVisible="False"/>
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "ThousandMButton" Clicked="ThousandMButton_Clicked"  FontSize="15" Text="1000m" Grid.Row = "2" Grid.Column = "1" IsVisible="False"/>
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Green" x:Name = "PolskiButton" Clicked="PolskiButton_Clicked"  FontSize="15" Text="Polski" Grid.Row = "2" Grid.Column = "0" IsVisible="False"/>
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "EnglishButton" Clicked="EnglishButton_Clicked"  FontSize="15" Text="English" Grid.Row = "2" Grid.Column = "1" IsVisible="False"/>
-        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "StartButton" Clicked="StartButton_Clicked"  FontSize="15" Text="Start" Grid.Row = "3" Grid.Column = "1" IsVisible="False"/>
-
-        <Button  CornerRadius="100" BackgroundColor ="Green"  x:Name = "AcceptButton" Clicked="AcceptButton_Clicked"  FontSize="15" Text="✓" Grid.Row = "2" Grid.Column = "0" IsVisible="False"/>
-        <Button  CornerRadius="100" BackgroundColor ="Red" x:Name = "DeclineButton" Clicked="DeclineButton_Clicked"  FontSize="15" Text="X" Grid.Row = "2" Grid.Column = "1" IsVisible="False"/>
-        <Button CornerRadius="100" BackgroundColor ="Transparent" x:Name = "informationButton"   FontSize="15" Text="" Grid.Row = "0" Grid.Column = "0" IsVisible="False"/>
-
-        <Label x:Name="DaneTempo"  FontSize="70" Text="15 KM/H" TextColor="White" BackgroundColor="Black" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row = "1" Grid.Column = "0" Grid.ColumnSpan="2"/>
-
-        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "UpButton" Clicked="UpButton_Clicked"  FontSize="30" Text="+0.1" Grid.Row = "2" Grid.Column = "1" IsVisible="False"/>
-        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "DownButton" Clicked="DownButton_Clicked"  FontSize="30" Text="-0.1" Grid.Row = "3" Grid.Column = "1" IsVisible="False"/>
-        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "UpButton2" Clicked="UpButton2_Clicked"   FontSize="30" Text="+1" Grid.Row = "2" Grid.Column = "0" IsVisible="False"/>
-        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "DownButton2" Clicked="DownButton2_Clicked"  FontSize="30" Text="-1" Grid.Row = "3" Grid.Column = "0" IsVisible="False"/>
-        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "DeleteHistoryButton" Clicked="DeleteHistoryButton_Clicked"  HorizontalOptions="Center" VerticalOptions="Center" Text="Usuń"  FontSize="30" Grid.Row = "3" Grid.Column = "0" IsVisible="False"/>
-
-
+        <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "tempo.png" x:Name = "PaceButton" Clicked="PaceButton_Clicked"  Grid.Row = "2" Grid.Column = "1"/>
+        
+      
     </Grid>
 
 

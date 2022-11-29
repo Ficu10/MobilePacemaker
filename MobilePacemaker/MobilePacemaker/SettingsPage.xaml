@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="false"
+NavigationPage.HasBackButton="false"
+
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePacemaker.SettingsPage"
+             BackgroundColor="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromSettingsToMainPage" Clicked="BackFromSettingsToMainPage_Clicked"   Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />
+
+        <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "lang.png" x:Name = "LanguageButton" Clicked="LanguageButton_Clicked" Grid.Row = "2" Grid.Column = "0" />
+        <ImageButton BorderColor="White" BorderWidth="4" Padding="40" CornerRadius="40" BackgroundColor ="Black" Source = "freq.png" x:Name = "SignalsFrequencyButton" Clicked="SignalsFrequencyButton_Clicked" Grid.Row = "2" Grid.Column = "1" />
+    </Grid>
+</ContentPage>

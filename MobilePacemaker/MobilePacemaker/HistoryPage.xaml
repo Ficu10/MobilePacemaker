@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="false"
+NavigationPage.HasBackButton="false"
+
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePacemaker.HistoryPage"
+             BackgroundColor="Black">
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout Grid.Row = "1" Grid.Column = "0" >
+            <Label TextColor="AntiqueWhite" x:Name="avargeSpeedHistory" FontSize="20" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "0" Text="Śr.Prędkość" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Label TextColor="AntiqueWhite" x:Name="avargeSpeedHistoryValue" FontSize="30" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout Grid.Row = "1" Grid.Column = "1">
+            <Label TextColor="AntiqueWhite" x:Name="distanceHistory" FontSize="20" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "1" Text="Dystans" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            <Label TextColor="AntiqueWhite" x:Name="distanceHistoryValue" FontSize="30" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "1"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout Grid.Row = "2" Grid.Column = "0">
+            <Label TextColor="AntiqueWhite" x:Name="timeHistory" FontSize="20" FontAttributes="Bold" Grid.Row = "2" Grid.Column = "0" Text="Czas" VerticalOptions="Center" HorizontalOptions="Center"  ></Label>
+            <Label TextColor="AntiqueWhite" x:Name="timeHistoryValue" FontSize="30" FontAttributes="Bold" Grid.Row = "2" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center"  ></Label>
+        </StackLayout>
+        <StackLayout Grid.Row = "2" Grid.Column = "1">
+            <Label TextColor="AntiqueWhite" x:Name="maxSpeedHistory" FontSize="20" FontAttributes="Bold" Grid.Row = "3" Grid.Column = "0" Text="Maks.Prędkość" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+            <Label TextColor="AntiqueWhite" x:Name="speedHistoryValue" FontSize="30" FontAttributes="Bold" Grid.Row = "3" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+        </StackLayout>
+
+
+        <CollectionView x:Name="listViewHistory" BackgroundColor="Black "  Grid.Row="1"  Grid.ColumnSpan="2" Grid.RowSpan ="3" HeightRequest="300" SelectionMode="Multiple" SelectionChanged="ListViewHistory_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate >
+                    <SwipeView BackgroundColor="Black ">
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Usuń"
+                                           BackgroundColor="Red"
+                                           CommandParameter="{Binding .}"
+                                           Invoked="SwipeItem_Invoked"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <StackLayout Orientation="Horizontal">
+                            <Image
+                       Source="{Binding ImageUrl}"
+                       Aspect="AspectFit"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                                />
+                            <StackLayout HorizontalOptions="StartAndExpand"
+                                         Spacing="0">
+                                <Label
+                                    Text="{Binding Id}"
+                                    TextColor="White"/>
+                                <Label
+                                    Text="{Binding Date}"
+                                    TextColor="White"/>
+
+
+                            </StackLayout>
+                        </StackLayout>
+                    </SwipeView>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromHistoryToMainPage" Clicked="BackFromHistoryToMainPage_Clicked"   Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />
+
+    </Grid>
+
+
+
+</ContentPage>

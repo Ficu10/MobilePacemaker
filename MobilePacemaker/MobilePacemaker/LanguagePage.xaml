@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="false"
+NavigationPage.HasBackButton="false"
+
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePacemaker.LanguagePage"
+             BackgroundColor="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromLanguageToSettings" Clicked="BackFromLanguageToSettings_Clicked"   Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Green" x:Name = "PolskiButton" Clicked="PolskiButton_Clicked"  FontSize="15" Text="Polski" Grid.Row = "2" Grid.Column = "0"/>
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "EnglishButton" Clicked="EnglishButton_Clicked"  FontSize="15" Text="English" Grid.Row = "2" Grid.Column = "1" />
+
+    </Grid>
+ 
+</ContentPage>

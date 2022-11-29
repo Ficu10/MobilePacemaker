@@ -17,7 +17,7 @@ namespace MobilePacemaker
             {
                 if (db == null)
                 {
-                    db = new SQLiteHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyStore.db3"));
+                    db = new SQLiteHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MyStore.db3"));
                 }
                 return db;
             }
@@ -26,7 +26,7 @@ namespace MobilePacemaker
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

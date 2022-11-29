@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,15 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Sounds\dobre tempo.mp3" />
-    <None Remove="Sounds\szybciej.mp3" />
-    <None Remove="Sounds\wolniej.mp3" />
+    <Compile Remove="Sounds\**" />
+    <EmbeddedResource Remove="Sounds\**" />
+    <None Remove="Sounds\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Sounds\dobre tempo.mp3" />
-    <EmbeddedResource Include="Sounds\szybciej.mp3" />
-    <EmbeddedResource Include="Sounds\wolniej.mp3" />
+    <None Remove="dobre tempo.mp3" />
+    <None Remove="szybciej.mp3" />
+    <None Remove="wolniej.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="dobre tempo.mp3" />
+    <EmbeddedResource Include="szybciej.mp3" />
+    <EmbeddedResource Include="wolniej.mp3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,5 +34,35 @@
     <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.6.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="NewRunPage.xaml.cs">
+      <DependentUpon>NewRunPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="FrequencyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="HistoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LanguagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewRunPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PaceChangePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    NavigationPage.HasNavigationBar="false"
+NavigationPage.HasBackButton="false"
+xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePacemaker.NewRunPage"
+             BackgroundColor="Black">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout Grid.Row = "1" Grid.Column = "0" >
+            <Label TextColor="AntiqueWhite" x:Name="avargeSpeed" FontSize="20" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "0" Text="Śr.Prędkość" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+            <Label TextColor="AntiqueWhite" x:Name="avargeSpeedValue" FontSize="30" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+        </StackLayout>
+        <StackLayout Grid.Row = "1" Grid.Column = "1">
+            <Label TextColor="AntiqueWhite" x:Name="distance" FontSize="20" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "1" Text="Dystans" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+            <Label TextColor="AntiqueWhite" x:Name="distanceValue" FontSize="30" FontAttributes="Bold" Grid.Row = "1" Grid.Column = "1"  VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+        </StackLayout>
+        <StackLayout Grid.Row = "2" Grid.Column = "0">
+            <Label TextColor="AntiqueWhite" x:Name="time" FontSize="20" FontAttributes="Bold" Grid.Row = "2" Grid.Column = "0" Text="Czas" VerticalOptions="Center" HorizontalOptions="Center"  ></Label>
+            <Label TextColor="AntiqueWhite" x:Name="timeValue" FontSize="30" FontAttributes="Bold" Grid.Row = "2" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center"  ></Label>
+        </StackLayout>
+        <StackLayout Grid.Row = "2" Grid.Column = "1">
+            <Label TextColor="AntiqueWhite" x:Name="speed" FontSize="20" FontAttributes="Bold" Grid.Row = "3" Grid.Column = "0" Text="Prędkość" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
+            <Label TextColor="AntiqueWhite" x:Name="speedValue" FontSize="30" FontAttributes="Bold" Grid.Row = "3" Grid.Column = "0"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        </StackLayout>
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "StartButton" Clicked="StartButton_Clicked"  FontSize="15" Text="Start" Grid.Row = "3" Grid.Column = "1"/>
+        <Button CornerRadius="100" BackgroundColor ="Transparent" x:Name = "informationButton"   FontSize="15" Text="" Grid.Row = "0" Grid.Column = "0" IsVisible="True"/>
+        <ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromNewRunToMainPage" Clicked="BackFromNewRunToMainPage_Clicked"   Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />
+
+    </Grid>
+</ContentPage>

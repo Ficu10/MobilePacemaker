@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePacemaker.PaceChangePage"
+             BackgroundColor="Black">
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--<ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromPaceToMainPage" Clicked =" BackFromPaceToMainPage_Clicked"  Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />-->
+
+        <Label x:Name="DaneTempo"  FontSize="70" Text="15 KM/H" TextColor="White" BackgroundColor="Black" HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row = "1" Grid.Column = "0" Grid.ColumnSpan="2"/>
+
+        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "UpButton" Clicked="UpButton_Clicked"  FontSize="30" Text="+0.1" Grid.Row = "2" Grid.Column = "1" />
+        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "DownButton" Clicked="DownButton_Clicked"  FontSize="30" Text="-0.1" Grid.Row = "3" Grid.Column = "1" />
+        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "UpButton2" Clicked="UpButton2_Clicked"   FontSize="30" Text="+1" Grid.Row = "2" Grid.Column = "0" />
+        <Button BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" CornerRadius="100" TextColor="White" x:Name = "DownButton2" Clicked="DownButton2_Clicked"  FontSize="30" Text="-1" Grid.Row = "3" Grid.Column = "0" />
+
+
+
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage NavigationPage.HasNavigationBar="false"
+NavigationPage.HasBackButton="false"
+
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilePacemaker.FrequencyPage"
+             BackgroundColor="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Green" x:Name = "OneHundredMButton" Clicked="OneHundredMButton_Clicked"  FontSize="15" Text="100m"  Grid.Row = "1" Grid.Column = "0" />
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "TwoHundredMButton" Clicked="TwoHundredMButton_Clicked"  FontSize="15" Text="200m" Grid.Row = "1" Grid.Column = "1" />
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "FiveHundredMButton" Clicked="FiveHundredMButton_Clicked"  FontSize="15" Text="500m" Grid.Row = "2" Grid.Column = "0" />
+        <Button CornerRadius="40" TextColor = "White" BorderColor="Blue" BorderWidth="4" BackgroundColor ="Black" x:Name = "ThousandMButton" Clicked="ThousandMButton_Clicked"  FontSize="15" Text="1000m" Grid.Row = "2" Grid.Column = "1" />
+        
+        <ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromFrequencyToSettings" Clicked="BackFromFrequencyToSettings_Clicked"   Grid.Row = "0" Grid.Column = "1"  Margin="100,0,0,100" />
+
+
+    </Grid>
+</ContentPage>

@@ -7,7 +7,11 @@ namespace MobilePacemaker
 {
     public class History
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
+
+
+        public int Id { get; set; }
+        [MaxLength(50)]
         public string Date { get; set; }
 
         public string AvgSpeed { get; set; }
@@ -21,7 +25,6 @@ namespace MobilePacemaker
         public string ImageUrl { get; set; }
 
 
-        public int Id { get; set; }
 
     }
 }
