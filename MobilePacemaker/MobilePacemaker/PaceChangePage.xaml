@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage 
+<ContentPage NavigationPage.HasNavigationBar="false"
+NavigationPage.HasBackButton="false"
     xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobilePacemaker.PaceChangePage"
@@ -18,7 +19,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <!--<ImageButton Padding="0" BackgroundColor ="Black" Source = "back.png" x:Name = "BackFromPaceToMainPage" Clicked =" BackFromPaceToMainPage_Clicked"  Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />-->
+        <ImageButton Padding="0" BackgroundColor ="black" Source = "back.png" x:Name = "backfrompacetomainpage" Clicked ="BackFromPaceToMainPage_Clicked"  Grid.Row = "0" Grid.Column = "1" Margin="100,0,0,100" />
 
         <Label x:Name="DaneTempo"  FontSize="70" Text="15 KM/H" TextColor="White" BackgroundColor="Black" HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row = "1" Grid.Column = "0" Grid.ColumnSpan="2"/>
 

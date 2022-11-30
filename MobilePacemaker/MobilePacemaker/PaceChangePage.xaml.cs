@@ -45,10 +45,10 @@ namespace MobilePacemaker
             }
         }
 
-        //async void BackFromPaceToMainPage_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new MainPage());
-        //}
+        async void BackFromPaceToMainPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
 
     }
 }

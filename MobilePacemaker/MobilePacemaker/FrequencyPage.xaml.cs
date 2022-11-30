@@ -50,25 +50,37 @@ namespace MobilePacemaker
             private void OneHundredMButton_Clicked(object sender, EventArgs e)
         {
             frequencyChanger = 1;
-           
+            OneHundredMButton.BackgroundColor = Color.Green;
+            TwoHundredMButton.BackgroundColor = Color.Black;
+            FiveHundredMButton.BackgroundColor = Color.Black;
+            ThousandMButton.BackgroundColor = Color.Black;
         }
 
         private void TwoHundredMButton_Clicked(object sender, EventArgs e)
         {
             frequencyChanger = 2;
-          
+            OneHundredMButton.BackgroundColor = Color.Black;
+            TwoHundredMButton.BackgroundColor = Color.Green;
+            FiveHundredMButton.BackgroundColor = Color.Black;
+            ThousandMButton.BackgroundColor = Color.Black;
         }
 
         private void FiveHundredMButton_Clicked(object sender, EventArgs e)
         {
             frequencyChanger = 3;
-         
+            OneHundredMButton.BackgroundColor = Color.Black;
+            TwoHundredMButton.BackgroundColor = Color.Black;
+            FiveHundredMButton.BackgroundColor = Color.Green;
+            ThousandMButton.BackgroundColor = Color.Black;
         }
 
         private void ThousandMButton_Clicked(object sender, EventArgs e)
         {
             frequencyChanger = 4;
-          
+            OneHundredMButton.BackgroundColor = Color.Black;
+            TwoHundredMButton.BackgroundColor = Color.Black;
+            FiveHundredMButton.BackgroundColor = Color.Black;
+            ThousandMButton.BackgroundColor = Color.Green;
         }
         async void BackFromFrequencyToSettings_Clicked(object sender, EventArgs e)
         {

@@ -1,21 +1,24 @@
-﻿using System;
+﻿using Microcharts;
+using SkiaSharp;
+using Microcharts.Forms;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MobilePacemaker
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HistoryPage : ContentPage
 	{
         bool isOpenHistory = false;
-		public HistoryPage ()
+
+        List<ChartEntry> entries = new List<ChartEntry>();
+        public HistoryPage ()
 		{
 			InitializeComponent();
+            //LineChartXML.Chart = new LineChart() { Entries = (IEnumerable<ChartEntry>)entries };
 		}
         protected override async void OnAppearing()
         {
@@ -55,6 +58,11 @@ namespace MobilePacemaker
             timeHistoryValue.Text = listahistorii.Time;
             avargeSpeedHistoryValue.Text = listahistorii.AvgSpeed;
             speedHistoryValue.Text = listahistorii.MaxSpeed;
+            //foreach (var item in NewRunPage.listOfSpeedsTest)
+            //{
+
+            //    entries.Add(new ChartEntry(Convert.ToSingle(item)));
+            //}
             listViewHistory.IsVisible = false;
             isOpenHistory = true;
         }

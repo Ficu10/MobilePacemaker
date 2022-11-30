@@ -24,6 +24,10 @@ namespace MobilePacemaker
 
         public string ImageUrl { get; set; }
 
+        public List<double> ListOfSpeeds { get; set; }
+
+        public List<double> ListOfTime { get; set; }
+
 
 
     }

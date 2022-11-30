@@ -31,6 +31,7 @@ namespace MobilePacemaker
         private void PolskiButton_Clicked(object sender, EventArgs e)
         {
             ChangeToPolish();
+            changeLanguage = 0;
             PolskiButton.BackgroundColor = Color.Green;
             EnglishButton.BackgroundColor = Color.Black;
         }
@@ -38,6 +39,7 @@ namespace MobilePacemaker
         private void EnglishButton_Clicked(object sender, EventArgs e)
         {
             ChangeToEnglish();
+            changeLanguage = 1;
             PolskiButton.BackgroundColor = Color.Black;
             EnglishButton.BackgroundColor = Color.Green;
         }

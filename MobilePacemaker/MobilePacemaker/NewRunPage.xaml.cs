@@ -21,10 +21,10 @@ namespace MobilePacemaker
         int changeLanguage = 0;
         double sumVelocity = 0;
         double prevVelocity = 0.0;
-        int timeSeconds = 0;
-        int timeMiliSeconds = 0;
-        int timeMinutes = 0;
-        int timeHours = 0;
+        double timeSeconds = 0;
+        double timeMiliSeconds = 0;
+        double timeMinutes = 0;
+        double timeHours = 0;
         bool firstAvgSpped0 = false;
         bool firstDistance0 = false;
         bool firstPartDistance0 = false;
@@ -40,12 +40,14 @@ namespace MobilePacemaker
         const int THREADVALUE = 100;
         const double SPEEDTODISTANCE = 0.000027777;
         int licznik = 0;
+        public static List<double> listOfSpeedsTest;
+        public static List<double> listOfTimeTest;
         public NewRunPage ()
 		{
 			InitializeComponent ();
          
         }
-
+        
         private async void GetLocation()
         {
             while (newRun == true)
@@ -56,10 +58,13 @@ namespace MobilePacemaker
                 var position = await locator.GetPositionAsync();
                 addDistance = ((position.Speed * MSTOKMH) * SPEEDTODISTANCE);
 
+               
+
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     timeValue.Text = string.Format("{0}:{1}:{2}", timeHours.ToString().PadLeft(2, '0'), timeMinutes.ToString().PadLeft(2, '0'), timeSeconds.ToString().PadLeft(2, '0'));
+                    listOfSpeedsTest.Add(addDistance);
 
                     speedValue.Text = Math.Round((position.Speed) * MSTOKMH, 0).ToString() + " km/h";
                     sumOfSpeeds += Math.Round((position.Speed) * MSTOKMH, 0);
@@ -278,7 +283,7 @@ namespace MobilePacemaker
                     timeMinutes = 0;
                     timeHours++;
                 }
-
+                listOfTimeTest.Add(timeMiliSeconds);
                 Thread.Sleep(THREADVALUE);
             }
         }
@@ -296,6 +301,8 @@ namespace MobilePacemaker
             addDistanceSumToChange = 0.0;
             addDistanceCounter = 0;
             maxSpeed = 0.0;
+            listOfSpeedsTest.Clear();
+            listOfTimeTest.Clear();
         }
 
         private void StartButton_Clicked(object sender, EventArgs e)
@@ -316,6 +323,8 @@ namespace MobilePacemaker
                 AvgSpeed = Math.Round((addDistanceSum / (addDistanceCounter / 1440)), 2).ToString() + " km/h",
                 MaxSpeed = maxSpeed.ToString() + " km/h",
                 ImageUrl = "goodRunner.jpg",
+                ListOfSpeeds = listOfSpeedsTest,
+                ListOfTime = listOfTimeTest
 
             });
         }
@@ -331,10 +340,7 @@ namespace MobilePacemaker
                     AddNewElementToHistory();
                     AllValuesZero();
                     newRun = false;
-                    var goodPace = GetStreamFromFile("dobre tempo.mp3");
-                    var audio = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-                    audio.Load(goodPace);
-                    audio.Play();
+                   
 
                     await Navigation.PushAsync(new MainPage());
                    
@@ -343,6 +349,10 @@ namespace MobilePacemaker
             }
             else
             {
+                var goodPace = GetStreamFromFile("dobre tempo.mp3");
+                var audio = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                audio.Load(goodPace);
+                audio.Play();
                 await Navigation.PushAsync(new MainPage());
             }
 
